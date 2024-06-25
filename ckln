@@ -26,12 +26,12 @@ done
 
 function mklnk() {
   LNKNAME=$(echo "$(basename ${DIR%.*})")
-  sudo ln -s ~/${DIR} ${BINDIR}${LNKNAME}
+  sudo ln -sTf ~/${DIR} ${BINDIR}${LNKNAME}
   printf $green "${LNKNAME} Configured" || printf $red "Error Configuring ${LNKNAME}"
 }
 
 function rmlnk() {
-  sudo rm -rf ${BINDIR}${DIR} && printf $red "${DIR} Removed" || printf $yellow "Error Removing ${DIR}"
+  sudo unlink ${BINDIR}${DIR} && printf $red "${DIR} Removed" || printf $yellow "Error Removing ${DIR}"
 }
 
 case $1 in
