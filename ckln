@@ -26,7 +26,7 @@ done
 
 function mklnk() {
   LNKNAME=$(echo "$(basename ${DIR%.*})")
-  sudo ln -sTf ~/${DIR} ${BINDIR}${LNKNAME}
+  sudo ln -sTf $(pwd)/${DIR} ${BINDIR}${LNKNAME}
   printf $green "${LNKNAME} Configured" || printf $red "Error Configuring ${LNKNAME}"
 }
 
